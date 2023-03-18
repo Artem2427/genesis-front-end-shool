@@ -21,8 +21,8 @@
       "@assets/*": ["assets", "assets/*"],
       "@entities": ["entities", "entities/*"],
       "@features": ["features", "features/*"],
+      // "@features/*": ["features/*"],
       "@shared": ["shared", "shared/*"],
-      "@widgets": ["widgets", "widgets/*"],
       "@pages": ["pages", "pages/*"]
     }
   },

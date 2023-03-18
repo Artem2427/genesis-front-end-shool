@@ -38,6 +38,7 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
+    '@typescript-eslint/no-unused-vars': 'error',
     'no-console': 'error',
     'no-restricted-syntax': [
       'error',
