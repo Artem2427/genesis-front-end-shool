@@ -4,8 +4,6 @@ import { Button, Select } from '@shared';
 import '@assets/styles/index.css';
 
 const App = () => {
-  console.log('Yepppp');
-
   return (
     <div>
       <Button />

@@ -38,6 +38,15 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
+    'no-console': 'error',
+    'no-restricted-syntax': [
+      'error',
+      {
+        selector:
+          "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+        message: 'Unexpected property on console object was called',
+      },
+    ],
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/anchor-has-content': 'off',
     'react/require-default-props': 'off',
