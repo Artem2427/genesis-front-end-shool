@@ -1,21 +1,10 @@
-import { ReactNode } from 'react';
-
-import { RouteKeys, Routes } from '@shared';
+import { RouteKeys, RouterItem, Routes } from '@shared';
 
 import { CourseDetailsPage } from '../course-details-page';
 import { CoursesListPage } from '../courses-list-page';
 import { LoginPage } from '../login-page';
 
-export interface RouterItem {
-  title: string;
-  key: RouteKeys;
-  path: string;
-  requiresAuth: boolean;
-  component: ReactNode;
-  headerInfo?: ReactNode;
-}
-
-export const ROUTES = [
+export const ROUTES: RouterItem[] = [
   {
     title: 'Login',
     key: RouteKeys.Login,

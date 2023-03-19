@@ -1,10 +1,14 @@
 import React from 'react';
-import { useAuth } from '@shared';
+
+import { Login } from '@features';
+import { StyledWrapper } from './style';
 
 const LoginPage = () => {
-  const { data } = useAuth();
-
-  return <div>Login page {data?.token}</div>;
+  return (
+    <StyledWrapper>
+      <Login />
+    </StyledWrapper>
+  );
 };
 
 export default LoginPage;

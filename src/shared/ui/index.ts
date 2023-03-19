@@ -1,2 +1,3 @@
-export * from './Button';
-export * from './Select';
+import AlertNotification from './alert/Alert';
+
+export { AlertNotification };

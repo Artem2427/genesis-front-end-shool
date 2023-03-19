@@ -1,26 +1,29 @@
 import React from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import {
+  QueryClient,
+  QueryClientConfig,
+  QueryClientProvider,
+} from 'react-query';
 import { BrowserRouter } from 'react-router-dom';
-import { AxiosProvider } from '@shared';
+import { AppContextProvider, AxiosProvider } from '@shared';
 import { Routes } from '@pages';
 
-import '@assets/styles/index.css';
 import useReactQueryOptions from './hooks/useReactQueryOptions';
+import '@assets/styles/index.css';
 
 const App = () => {
-  // const link =
-  //   'https://wisey.app/assets/images/web/course-covers/learn-and-grow-self-improvement' +
-  //   '/cover.webp';
   const queryClientConfig = useReactQueryOptions();
 
-  const queryClient = new QueryClient(queryClientConfig);
+  const queryClient = new QueryClient(queryClientConfig as QueryClientConfig);
 
   return (
     <AxiosProvider>
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <Routes />
-        </BrowserRouter>
+      <QueryClientProvider client={queryClient} contextSharing>
+        <AppContextProvider>
+          <BrowserRouter>
+            <Routes />
+          </BrowserRouter>
+        </AppContextProvider>
       </QueryClientProvider>
     </AxiosProvider>
   );
