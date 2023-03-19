@@ -1,10 +1,14 @@
 /* eslint-disable */
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import ReactPlayer from 'react-player';
 import { useCourse } from '@entities';
-import { DetailsInfo, LessonsGrid, VideoPlayer } from '@features';
+import { DetailsInfo, LessonsGrid } from '@features';
 import { AppContext } from '@shared';
 import { StyledCircularProgress, StyledWrapper } from './style';
+
+import '@vime/core/themes/default.css';
+import '@vime/core/themes/light.css';
 
 const CourseDetailsPage = () => {
   const { courseId } = useParams();
@@ -23,8 +27,16 @@ const CourseDetailsPage = () => {
   return (
     <StyledWrapper>
       <div>
-        {activeLesson ? (
-          <VideoPlayer videoSource={activeLesson.link} preload="" />
+        {activeLesson && activeLesson.link ? (
+          <>
+            {/* <VideoPlayer videoSource={activeLesson.link} preload="" /> */}
+            <ReactPlayer
+              url={activeLesson.link}
+              playing={false}
+              controls
+              stopOnUnmount={false}
+            />
+          </>
         ) : null}
         <DetailsInfo course={course!} />
       </div>

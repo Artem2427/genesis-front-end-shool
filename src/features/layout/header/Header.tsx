@@ -38,11 +38,11 @@ const Header: FC = () => {
   >([]);
 
   useEffect(() => {
-    if (
-      currentRoute &&
-      !breadCrumbItems.find((item) => item.path === currentRoute.path)
-    ) {
-      if (courseId) {
+    if (currentRoute) {
+      if (
+        courseId &&
+        !breadCrumbItems.find((item) => item.path === currentRoute?.path)
+      ) {
         const copy = [...breadCrumbItems].map((item) => ({
           ...item,
           isLink: true,
@@ -70,13 +70,8 @@ const Header: FC = () => {
         ]);
       }
     }
-  }, [
-    courseId,
-    currentRoute,
-    location.search,
-    breadCrumbItems,
-    setBreadCrumbItems,
-  ]);
+    // eslint-disable-next-line
+  }, [courseId, currentRoute, location.search, setBreadCrumbItems]);
 
   const handleNavigate = (path: string): void => {
     if (path) {

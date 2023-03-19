@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import Forward10Icon from '@mui/icons-material/Forward10';
 import Replay10Icon from '@mui/icons-material/Replay10';
@@ -13,7 +14,10 @@ const VideoPlayer: FC<VideoPlayerInterface> = ({ videoSource }) => {
 
   return (
     <div>
-      <StyledVideo ref={videoRef} src={videoSource} preload="metadata" />
+      <StyledVideo ref={videoRef} preload="auto" width="640" height="264">
+        <source src={videoSource} type="application/x-mpegURL" />
+      </StyledVideo>
+
       <div className="progressBarContainer">
         <div style={{ width: `${video.progress}%` }} />
       </div>
